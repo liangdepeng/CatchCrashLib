@@ -7,24 +7,25 @@ How to use
 
 the First Way : Make your Application extends CrashHaldleApplication
  
- public class MyApplication extends CrashHaldleApplication {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    public class MyApplication extends CrashHaldleApplication {
+   
+        @Override
+        public void onCreate() {
+            super.onCreate();
+        }
     }
-}
+
 
 the Other Way : In Your Application init()
 
-public class MyApplication extends Application {
+    public class MyApplication extends Application {
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        CrashHandleUtil.init(this);
+        @Override
+    	public void onCreate() {
+        	super.onCreate();
+        	CrashHandleUtil.init(this);
+    	}
     }
-}
 
 
 Add it in your root build.gradle at the end of repositories:
