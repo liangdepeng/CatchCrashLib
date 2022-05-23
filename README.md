@@ -43,6 +43,6 @@ the Other Way : In Your Application init()
     	}
     }
     
-<div align=center><img src="[https://img-blog.csdnimg.cn/20210308145447687.gif](https://github.com/liangdepeng/CatchCrashLib/blob/master/example_page.jpg)"/></div>
+<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_dialog.jpg"/></div>
 
 
