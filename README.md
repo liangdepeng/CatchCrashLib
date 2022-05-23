@@ -43,6 +43,8 @@ the Other Way : In Your Application init()
     	}
     }
     
-<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_dialog.jpg" width=540 height=1170/></div>
-
-
+Here are two display modes:
+  1. New Page
+<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_dialog.jpg" width=360 height=780/></div>
+  1. Dialog
+<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_page.jpg" width=360 height=780/></div>
