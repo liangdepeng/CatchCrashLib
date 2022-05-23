@@ -1,7 +1,10 @@
-# CatchCrashLib
+# Android - CatchCrashLib
 
 Global interception catch exception crash
-全局拦截捕获异常崩溃
+Android 全局拦截捕获异常崩溃
+This library can help you locate the problems encountered in development faster and reduce the time to reproduce bugs
+这个库可以帮助你更快的定位到开发中遇到的问题，减少了复现bug的时间
+
 
 Step1. Add it in your root build.gradle at the end of repositories:
 
