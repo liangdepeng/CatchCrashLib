@@ -42,7 +42,7 @@ the Other Way : In Your Application init()
         	CrashHandleUtil.init(this);
     	}
     }
+    
+<div align=center><img src="[https://img-blog.csdnimg.cn/20210308145447687.gif](https://github.com/liangdepeng/CatchCrashLib/blob/master/example_page.jpg)"/></div>
 
-
-![Page 样式](“https://github.com/liangdepeng/CatchCrashLib/blob/master/example_page.jpg” "Page 样式")
 
