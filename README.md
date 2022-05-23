@@ -44,5 +44,5 @@ the Other Way : In Your Application init()
     }
 
 
-![Page 样式]“https://github.com/liangdepeng/CatchCrashLib/blob/master/example_page.jpg” "Page 样式")
+![Page 样式](“https://github.com/liangdepeng/CatchCrashLib/blob/master/example_page.jpg” "Page 样式")
 
