@@ -44,4 +44,5 @@ the Other Way : In Your Application init()
     }
 
 
+![Page 样式](图片地址 "title")
 
