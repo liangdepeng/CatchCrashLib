@@ -15,6 +15,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.IntDef;
@@ -39,8 +42,10 @@ public class CrashHandleUtil {
     @SuppressLint("StaticFieldLeak")
     private static Activity currentActivity;
 
-    @IntDef({CrashHaldleApplication.CrashShowStyle.STYLE_NEW_PAGE,
-            CrashHaldleApplication.CrashShowStyle.STYLE_DIALOG_IF_CAN_SHOW})
+    private static boolean isInit = false;
+
+    @IntDef({CrashHandleUtil.CrashShowStyle.STYLE_NEW_PAGE,
+            CrashHandleUtil.CrashShowStyle.STYLE_DIALOG_IF_CAN_SHOW})
     public @interface CrashShowStyle {
         int STYLE_NEW_PAGE = 101;
         int STYLE_DIALOG_IF_CAN_SHOW = 102;
@@ -48,14 +53,26 @@ public class CrashHandleUtil {
 
     private static int tipShowStyle = CrashHaldleApplication.CrashShowStyle.STYLE_NEW_PAGE;
 
-    public static void init(Application application) {
+
+    public static void init(Application application){
+        init(application,CrashShowStyle.STYLE_NEW_PAGE);
+    }
+
+    public static void init(Application application,@CrashShowStyle int tipShowStyle) {
+        if (isInit)
+            return;
+
         appCtx = application;
+        // 显示样式 CrashShowStyle 有新的页面展示 和 弹窗展示
+        CrashHandleUtil.tipShowStyle = tipShowStyle;
         // 监控 未捕获的异常
         setDefaultUncaughtExceptionHandler();
         // 注册activity 生命周期
         registerActivityLifecycle();
         // 捕获 主线程的异常
         catchMainThreadException();
+
+        isInit = true;
     }
 
     public static void setTipShowStyle(@CrashShowStyle int tipShowStyle) {
@@ -175,10 +192,12 @@ public class CrashHandleUtil {
 
             if (tipShowStyle == CrashHaldleApplication.CrashShowStyle.STYLE_DIALOG_IF_CAN_SHOW && currentActivity != null
                     && !currentActivity.isFinishing() && !currentActivity.isDestroyed()) {
+                View view = LayoutInflater.from(appCtx).inflate(R.layout.dialog_tip, null);
+                ((TextView) view.findViewById(R.id.crashInfo)).setText(errorStr);
                 AlertDialog alertDialog = new AlertDialog.Builder(currentActivity)
-                        .setCancelable(true)
+                        .setView(view)
+                        .setCancelable(false)
                         .setTitle("crash-info")
-                        .setMessage(errorStr)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -192,10 +211,8 @@ public class CrashHandleUtil {
                             public void onClick(DialogInterface dialog, int which) {
                                 ClipboardManager clipboardManager = (ClipboardManager) appCtx.getSystemService(Context.CLIPBOARD_SERVICE);
                                 clipboardManager.setPrimaryClip(ClipData.newPlainText(null, errorStr));
-                                Toast toast = new Toast(appCtx);
-                                toast.setDuration(Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(appCtx,"已复制到剪切板",Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.setText("已复制到剪切板");
                                 toast.show();
                             }
                         })

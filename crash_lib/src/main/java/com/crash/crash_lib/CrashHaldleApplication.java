@@ -58,6 +58,10 @@ public class CrashHaldleApplication extends Application {
         catchMainThreadException();
     }
 
+    public void setTipShowStyle(@CrashShowStyle int tipShowStyle) {
+        this.tipShowStyle = tipShowStyle;
+    }
+
     private void setDefaultUncaughtExceptionHandler() {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
@@ -217,7 +221,4 @@ public class CrashHaldleApplication extends Application {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
-    public void setTipShowStyle(@CrashShowStyle int tipShowStyle) {
-        this.tipShowStyle = tipShowStyle;
-    }
 }
