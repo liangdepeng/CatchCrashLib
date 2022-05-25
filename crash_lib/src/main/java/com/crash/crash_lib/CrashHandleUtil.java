@@ -51,7 +51,7 @@ public class CrashHandleUtil {
         int STYLE_DIALOG_IF_CAN_SHOW = 102;
     }
 
-    private static int tipShowStyle = CrashHaldleApplication.CrashShowStyle.STYLE_NEW_PAGE;
+    private static int tipShowStyle = CrashShowStyle.STYLE_NEW_PAGE;
 
 
     public static void init(Application application){
