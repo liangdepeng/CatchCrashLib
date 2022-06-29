@@ -49,7 +49,7 @@ the Other Way : In Your Application init()
     }
     
 Here are two display modes:
-  1. New Page
-<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_dialog.jpg" width=432 height=936/></div>
   1. Dialog
+<div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_dialog.jpg" width=432 height=936/></div>
+  2. New Page
 <div align=center><img src="https://raw.githubusercontent.com/liangdepeng/CatchCrashLib/master/example_page.jpg" width=432 height=936/></div>
