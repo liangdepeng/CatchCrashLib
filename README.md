@@ -59,10 +59,10 @@ the Other Way : In Your Application init()
     public class MyApplication extends Application {
 
         @Override
-    	public void onCreate() {
-	       super.onCreate();
-	       CrashHandleUtil.init(this);
-    	}
+        public void onCreate() {
+            super.onCreate();
+            CrashHandleUtil.init(this);
+        }
     }
     
 Here are two display modes:
