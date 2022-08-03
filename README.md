@@ -60,8 +60,8 @@ the Other Way : In Your Application init()
 
         @Override
     	public void onCreate() {
-		super.onCreate();
-		CrashHandleUtil.init(this);
+			super.onCreate();
+			CrashHandleUtil.init(this);
     	}
     }
     
